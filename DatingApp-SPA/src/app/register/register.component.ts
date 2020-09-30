@@ -11,9 +11,13 @@ export class RegisterComponent implements OnInit {
   @Output() cancelRegister = new EventEmitter();
   model: any = {};
 
-  constructor(private authService: AuthService, private alertify: AlertifyService) {}
+  constructor(
+    private authService: AuthService,
+    private alertify: AlertifyService
+    ) {}
   // tslint:disable-next-line: typedef
   ngOnInit() {}
+
   // tslint:disable-next-line: typedef
   register() {
     this.authService.register(this.model).subscribe(

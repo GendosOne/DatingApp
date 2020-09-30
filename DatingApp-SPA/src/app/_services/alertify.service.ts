@@ -11,11 +11,13 @@ export class AlertifyService {
     alertify.confirm(message, (e: any) => {
       if (e) {
         okCallback();
-      } else {
-      }
+      } else {}
     });
   }
- 
+  // tslint:disable-next-line: typedef
+  success(message: string) {
+    alertify.success (message);
+  }
   // tslint:disable-next-line: typedef
   error(message: string) {
     alertify.error(message);
@@ -28,8 +30,5 @@ export class AlertifyService {
   message(message: string) {
     alertify.message(message);
   }
-   // tslint:disable-next-line: typedef
-   success(message: string) {
-    alertify.success (message);
-  }
+
 }

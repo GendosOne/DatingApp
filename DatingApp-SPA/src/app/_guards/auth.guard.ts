@@ -2,7 +2,6 @@ import { Route } from '@angular/compiler/src/core';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-import { timingSafeEqual } from 'crypto';
 import { AlertifyService } from '../_services/alertify.service';
 import { AuthService } from '../_services/auth.service';
 
