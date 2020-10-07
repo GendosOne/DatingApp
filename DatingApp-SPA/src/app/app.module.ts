@@ -9,6 +9,8 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { FileUploadModule } from 'ng2-file-upload';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -29,6 +31,7 @@ import { MemberEditComponent } from './members/member-edit/member-edit.component
 import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
+import { TimeagoModule } from 'ngx-timeago';
 
 
 export function tokenGetter() {
@@ -56,13 +59,15 @@ export function tokenGetter() {
    HttpClientModule,
    FormsModule,
    ReactiveFormsModule,
-   BrowserAnimationsModule,
    BsDatepickerModule.forRoot(),
    BsDropdownModule.forRoot(),
+   PaginationModule,
    TabsModule.forRoot(),
+   TimeagoModule.forRoot(),
    RouterModule.forRoot(approutes),
    NgxGalleryModule,
    FileUploadModule,
+   ButtonsModule.forRoot(),
    JwtModule.forRoot({
      config: {
       tokenGetter: tokenGetter,
