@@ -11,6 +11,7 @@ import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { FileUploadModule } from 'ng2-file-upload';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -35,8 +36,15 @@ import { TimeagoModule } from 'ngx-timeago';
 import { ListsResolver } from './_resolvers/lists.resolver';
 import { MessagesResolver } from './_resolvers/messages.resolver';
 import { MemberMessagesComponent } from './members/member-messages/member-messages.component';
+import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
+import { HasRoleDirective } from './_directives/hasRole.directive';
+import { UserManagementComponent } from './admin/admin-panel/user-management/user-management.component';
+import { PhotoManagementComponent } from './admin/admin-panel/photo-management/photo-management.component';
+import { AdminService } from './_services/admin.service';
+import { RolesModalComponent } from './admin/admin-panel/roles-modal/roles-modal.component';
 
 
+// tslint:disable-next-line: typedef
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
@@ -55,7 +63,12 @@ export function tokenGetter() {
       MemberDetailComponent,
       MemberEditComponent,
       PhotoEditorComponent,
-      MemberMessagesComponent
+      MemberMessagesComponent,
+      AdminPanelComponent,
+      HasRoleDirective,
+      UserManagementComponent,
+      PhotoManagementComponent,
+      RolesModalComponent
    ],
   imports: [
    BrowserModule,
@@ -71,6 +84,7 @@ export function tokenGetter() {
    RouterModule.forRoot(approutes),
    NgxGalleryModule,
    FileUploadModule,
+   ModalModule.forRoot(),
    ButtonsModule.forRoot(),
    JwtModule.forRoot({
      config: {
@@ -88,7 +102,11 @@ export function tokenGetter() {
     MemberEditResolver,
     PreventUnsavedChanges,
     ListsResolver,
-    MessagesResolver
+    MessagesResolver,
+    AdminService
+  ],
+  entryComponents: [
+    RolesModalComponent
   ],
   bootstrap: [AppComponent]
 })
